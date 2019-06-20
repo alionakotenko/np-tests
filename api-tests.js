@@ -4,7 +4,7 @@ const [assert, request, config] = [
   require('./env/config.json')
 ];
 
-describe('getWarehouses', function() {
+describe('getWarehouses', () => {
     it('POST request with the valid parameters (json)', async () => {
         const options = { 
           method: 'POST',
@@ -23,7 +23,7 @@ describe('getWarehouses', function() {
           json: true 
         };
       
-      request(options, function (error, response, body) { 
+      request(options, (error, response, body) => { 
         assert.isTrue(response.statusCode == 200);
         assert.isTrue(body.success);   
         assert.isNotNull(body.data);
@@ -55,7 +55,7 @@ describe('getWarehouses', function() {
         json: true 
       };
     
-    request(options, function (error, response, body) {    
+    request(options, (error, response, body) => {    
       assert.isTrue(response.statusCode == 200);
       assert.isTrue(body.success);   
       assert.isNotNull(body.data);
@@ -87,7 +87,7 @@ describe('getWarehouses', function() {
       json: true 
     };
   
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       assert.isTrue(response.statusCode == 200);
       assert.isTrue(body.success);   
       assert.isEmpty(body.data);
@@ -119,7 +119,7 @@ describe('getWarehouses', function() {
       json: true 
     };
   
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       assert.isTrue(response.statusCode == 200);
       assert.isTrue(body.success);   
       assert.isEmpty(body.data);
@@ -151,7 +151,7 @@ describe('getWarehouses', function() {
       json: true 
     };
     
-    request(options, function (error, response, body) {    
+    request(options, (error, response, body) => {    
       assert.isTrue(response.statusCode == 200);
         assert.isTrue(body.success);   
         assert.isNotNull(body.data);
@@ -166,7 +166,7 @@ describe('getWarehouses', function() {
   });
 });
 
-describe('Waybill creation', function() {
+describe('Waybill creation', () => {
   it('POST request with the invalid parameters (json)', async () => {
       const options = { 
         method: 'POST',
@@ -203,7 +203,7 @@ describe('Waybill creation', function() {
         json: true 
       };
     
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       assert.isTrue(response.statusCode == 200);
       assert.isFalse(body.success);   
       assert.isEmpty(body.data);
@@ -253,7 +253,7 @@ describe('Waybill creation', function() {
       json: true 
     };
   
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       assert.isTrue(response.statusCode == 200);
       assert.isFalse(body.success);   
       assert.isEmpty(body.data);
@@ -303,7 +303,7 @@ describe('Waybill creation', function() {
       json: true 
     };
   
-    request(options, function (error, response, body) {
+    request(options, (error, response, body) => {
       assert.isTrue(response.statusCode == 200);
       assert.isFalse(body.success);   
       assert.isEmpty(body.data);
