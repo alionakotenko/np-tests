@@ -5,7 +5,7 @@ const config = require('./env/config.json');
 
 describe('getWarehouses', function() {
     it('POST request with the valid parameters (json)', async () => {
-        var options = { 
+        const options = { 
           method: 'POST',
           url: config.apiUrl + 'json/',
           body: 
@@ -28,7 +28,7 @@ describe('getWarehouses', function() {
     });
 
     it('POST request with the empty API key', async () => {
-      var options = { 
+      const options = { 
         method: 'POST',
         url: config.apiUrl + 'json/',
         body: 
@@ -51,7 +51,7 @@ describe('getWarehouses', function() {
   });
 
   it('POST request with the “CityName” parameter filled with numbers', async () => {
-    var options = { 
+    const options = { 
       method: 'POST',
       url: config.apiUrl + 'json/',
       body: 
@@ -75,7 +75,7 @@ describe('getWarehouses', function() {
   });
 
   it('POST request with the “CityName” parameter containing more than 36 characters', async () => {
-    var options = { 
+    const options = { 
       method: 'POST',
       url: config.apiUrl + 'json/',
       body: 
@@ -99,7 +99,7 @@ describe('getWarehouses', function() {
   });
 
   it('DELETE request with the valid parameters', async () => {
-    var options = { 
+    const options = { 
       method: 'DELETE',
       url: config.apiUrl + 'json/',
       body: 
@@ -124,7 +124,7 @@ describe('getWarehouses', function() {
 
 describe('Waybill creation', function() {
   it('POST request with the invalid parameters (json)', async () => {
-      var options = { 
+      const options = { 
         method: 'POST',
         url: config.apiUrl + 'json/',
         body: 
@@ -165,7 +165,7 @@ describe('Waybill creation', function() {
   });
 
   it('POST request with the parameter "CargoType": "Documents" and “Weight”: “2”', async () => {
-    var options = { 
+    const options = { 
       method: 'POST',
       url: config.apiUrl + 'json/',
       body: 
@@ -206,7 +206,7 @@ describe('Waybill creation', function() {
   });
 
   it('POST request with the parameter "PayerType": "ThirdPerson" and “PaymentMethod”:”Cash”', async () => {
-    var options = { 
+    const options = { 
       method: 'POST',
       url: config.apiUrl + 'json/',
       body: 
