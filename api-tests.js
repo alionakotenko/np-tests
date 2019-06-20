@@ -22,8 +22,17 @@ describe('getWarehouses', function() {
           json: true 
         };
       
-      request(options, function (error, response, body) {    
-        assert.isTrue(body.success);
+      request(options, function (error, response, body) { 
+        assert.isTrue(response.statusCode == 200);
+        assert.isTrue(body.success);   
+        assert.isNotNull(body.data);
+        assert.isNotNull(body.errors);
+        assert.isNotNull(body.warnings);
+        assert.isNotNull(body.info);
+        assert.isNotNull(body.messageCodes);
+        assert.isNotNull(body.errorCodes);
+        assert.isNotNull(body.warningCodes);
+        assert.isNotNull(body.infoCodes);
       });
     });
 
@@ -46,7 +55,16 @@ describe('getWarehouses', function() {
       };
     
     request(options, function (error, response, body) {    
-      assert.isTrue(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isTrue(body.success);   
+      assert.isNotNull(body.data);
+      assert.isNotNull(body.errors);
+      assert.isNotNull(body.warnings);
+      assert.isNotNull(body.info);
+      assert.isNotNull(body.messageCodes);
+      assert.isNotNull(body.errorCodes);
+      assert.isNotNull(body.warningCodes);
+      assert.isNotNull(body.infoCodes);
     });
   });
 
@@ -69,8 +87,16 @@ describe('getWarehouses', function() {
     };
   
     request(options, function (error, response, body) {
-      assert.isTrue(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isTrue(body.success);   
       assert.isEmpty(body.data);
+      assert.isEmpty(body.errors);
+      assert.isEmpty(body.warnings);
+      assert.isNotEmpty(body.info);
+      assert.isEmpty(body.messageCodes);
+      assert.isEmpty(body.errorCodes);
+      assert.isEmpty(body.warningCodes);
+      assert.isEmpty(body.infoCodes);
     });
   });
 
@@ -93,8 +119,16 @@ describe('getWarehouses', function() {
     };
   
     request(options, function (error, response, body) {
-      assert.isTrue(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isTrue(body.success);   
       assert.isEmpty(body.data);
+      assert.isEmpty(body.errors);
+      assert.isEmpty(body.warnings);
+      assert.isNotEmpty(body.info);
+      assert.isEmpty(body.messageCodes);
+      assert.isEmpty(body.errorCodes);
+      assert.isEmpty(body.warningCodes);
+      assert.isEmpty(body.infoCodes);
     });
   });
 
@@ -117,7 +151,16 @@ describe('getWarehouses', function() {
     };
     
     request(options, function (error, response, body) {    
-      assert.isTrue(body.success);
+      assert.isTrue(response.statusCode == 200);
+        assert.isTrue(body.success);   
+        assert.isNotNull(body.data);
+        assert.isNotNull(body.errors);
+        assert.isNotNull(body.warnings);
+        assert.isNotNull(body.info);
+        assert.isNotNull(body.messageCodes);
+        assert.isNotNull(body.errorCodes);
+        assert.isNotNull(body.warningCodes);
+        assert.isNotNull(body.infoCodes);
     });
   });
 });
@@ -160,7 +203,16 @@ describe('Waybill creation', function() {
       };
     
     request(options, function (error, response, body) {
-      assert.isFalse(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isFalse(body.success);   
+      assert.isEmpty(body.data);
+      assert.isNotNull(body.errors);
+      assert.isEmpty(body.warnings);
+      assert.isEmpty(body.info);
+      assert.isEmpty(body.messageCodes);
+      assert.isNotNull(body.errorCodes);
+      assert.isEmpty(body.warningCodes);
+      assert.isEmpty(body.infoCodes);
     });
   });
 
@@ -201,7 +253,16 @@ describe('Waybill creation', function() {
     };
   
     request(options, function (error, response, body) {
-      assert.isFalse(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isFalse(body.success);   
+      assert.isEmpty(body.data);
+      assert.isNotNull(body.errors);
+      assert.isEmpty(body.warnings);
+      assert.isEmpty(body.info);
+      assert.isEmpty(body.messageCodes);
+      assert.isNotNull(body.errorCodes);
+      assert.isEmpty(body.warningCodes);
+      assert.isEmpty(body.infoCodes);
     });
   });
 
@@ -242,7 +303,16 @@ describe('Waybill creation', function() {
     };
   
     request(options, function (error, response, body) {
-      assert.isFalse(body.success);
+      assert.isTrue(response.statusCode == 200);
+      assert.isFalse(body.success);   
+      assert.isEmpty(body.data);
+      assert.isNotNull(body.errors);
+      assert.isEmpty(body.warnings);
+      assert.isEmpty(body.info);
+      assert.isEmpty(body.messageCodes);
+      assert.isNotNull(body.errorCodes);
+      assert.isEmpty(body.warningCodes);
+      assert.isEmpty(body.infoCodes);
     });
   });
 });
