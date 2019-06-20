@@ -1,14 +1,13 @@
-let assert = require('chai').assert;
-var request = require("request");
+const assert = require('chai').assert;
+const request = require('request');
 
-const baseUrl = 'https://api.novaposhta.ua/v2.0/';
-const apiKey = 'b51551abacd076117bcb8b13dbb96110';
+const config = require('./env/config.json');
 
 describe('getWarehouses', function() {
     it('POST request with the valid parameters (json)', async () => {
         var options = { 
           method: 'POST',
-          url: baseUrl + 'json/',
+          url: config.apiUrl + 'json/',
           body: 
           { 
             modelName: 'AddressGeneral',
@@ -18,7 +17,7 @@ describe('getWarehouses', function() {
               Language: 'ru', 
               CityName: 'Суми' 
             },
-            apiKey: apiKey 
+            apiKey: config.apiKey 
           },
           json: true 
         };
@@ -31,7 +30,7 @@ describe('getWarehouses', function() {
     it('POST request with the empty API key', async () => {
       var options = { 
         method: 'POST',
-        url: baseUrl + 'json/',
+        url: config.apiUrl + 'json/',
         body: 
         { 
           modelName: 'AddressGeneral',
@@ -54,7 +53,7 @@ describe('getWarehouses', function() {
   it('POST request with the “CityName” parameter filled with numbers', async () => {
     var options = { 
       method: 'POST',
-      url: baseUrl + 'json/',
+      url: config.apiUrl + 'json/',
       body: 
       { 
         modelName: 'AddressGeneral',
@@ -64,7 +63,7 @@ describe('getWarehouses', function() {
           Language: 'ru', 
           CityName: 'Sumy123' 
         },
-        apiKey: apiKey 
+        apiKey: config.apiKey 
       },
       json: true 
     };
@@ -78,7 +77,7 @@ describe('getWarehouses', function() {
   it('POST request with the “CityName” parameter containing more than 36 characters', async () => {
     var options = { 
       method: 'POST',
-      url: baseUrl + 'json/',
+      url: config.apiUrl + 'json/',
       body: 
       { 
         modelName: 'AddressGeneral',
@@ -88,7 +87,7 @@ describe('getWarehouses', function() {
           Language: 'ru', 
           CityName: 'SumySumySumySumySumySumySumySumySumySumySumySumySumy' 
         },
-        apiKey: apiKey 
+        apiKey: config.apiKey 
       },
       json: true 
     };
@@ -102,7 +101,7 @@ describe('getWarehouses', function() {
   it('DELETE request with the valid parameters', async () => {
     var options = { 
       method: 'DELETE',
-      url: baseUrl + 'json/',
+      url: config.apiUrl + 'json/',
       body: 
       { 
         modelName: 'AddressGeneral',
@@ -112,7 +111,7 @@ describe('getWarehouses', function() {
           Language: 'ru', 
           CityName: 'Суми' 
         },
-        apiKey: apiKey 
+        apiKey: config.apiKey 
       },
       json: true 
     };
@@ -127,7 +126,7 @@ describe('Waybill creation', function() {
   it('POST request with the invalid parameters (json)', async () => {
       var options = { 
         method: 'POST',
-        url: baseUrl + 'json/',
+        url: config.apiUrl + 'json/',
         body: 
         { 
           modelName: "InternetDocument",
@@ -155,7 +154,7 @@ describe('Waybill creation', function() {
             ContactRecipient: "bc7b61ea-b6eb-11e4-a77a-005056887b8d",
             RecipientsPhone: "380631112223"
           },
-          apiKey: apiKey 
+          apiKey: config.apiKey 
         },
         json: true 
       };
@@ -168,7 +167,7 @@ describe('Waybill creation', function() {
   it('POST request with the parameter "CargoType": "Documents" and “Weight”: “2”', async () => {
     var options = { 
       method: 'POST',
-      url: baseUrl + 'json/',
+      url: config.apiUrl + 'json/',
       body: 
       { 
         modelName: "InternetDocument",
@@ -196,7 +195,7 @@ describe('Waybill creation', function() {
           ContactRecipient: "bc7b61ea-b6eb-11e4-a77a-005056887b8d",
           RecipientsPhone: "380631112223"
         },
-        apiKey: apiKey 
+        apiKey: config.apiKey 
       },
       json: true 
     };
@@ -209,7 +208,7 @@ describe('Waybill creation', function() {
   it('POST request with the parameter "PayerType": "ThirdPerson" and “PaymentMethod”:”Cash”', async () => {
     var options = { 
       method: 'POST',
-      url: baseUrl + 'json/',
+      url: config.apiUrl + 'json/',
       body: 
       { 
         modelName: "InternetDocument",
@@ -237,7 +236,7 @@ describe('Waybill creation', function() {
           ContactRecipient: "bc7b61ea-b6eb-11e4-a77a-005056887b8d",
           RecipientsPhone: "380631112223"
         },
-        apiKey: apiKey 
+        apiKey: config.apiKey 
       },
       json: true 
     };
