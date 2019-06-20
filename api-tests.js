@@ -1,7 +1,8 @@
-const assert = require('chai').assert;
-const request = require('request');
-
-const config = require('./env/config.json');
+const [assert, request, config] = [
+  require('chai').assert, 
+  require('request'), 
+  require('./env/config.json')
+];
 
 describe('getWarehouses', function() {
     it('POST request with the valid parameters (json)', async () => {

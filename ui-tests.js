@@ -1,9 +1,10 @@
-const assert = require('chai').assert;
-const webdriver = require('selenium-webdriver');
-const chromdriver = require('chromedriver');
-const By = require('selenium-webdriver').By;
-
-const config = require('./env/config.json');
+const [assert, webdriver, chromdriver, By, config] = [
+    require('chai').assert, 
+    require('selenium-webdriver'), 
+    require('chromedriver'), 
+    require('selenium-webdriver').By, 
+    require('./env/config.json')
+];
 
 describe('Login Form', function() {
     const driver = new webdriver.Builder().forBrowser('chrome').build();
