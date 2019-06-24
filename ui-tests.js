@@ -1,11 +1,10 @@
-let assert = require('chai').assert;
-let webdriver = require('selenium-webdriver');
-let chromdriver = require('chromedriver');
-let By = require('selenium-webdriver').By;
-
-const baseUrl = 'https://novaposhta.ua/';
-const login = 'alionakotenko@gmail.com';
-const password = 'Ks4C6M3VpqTWfsX'; 
+const [assert, webdriver, chromdriver, By, config] = [
+    require('chai').assert, 
+    require('selenium-webdriver'), 
+    require('chromedriver'), 
+    require('selenium-webdriver').By, 
+    require('./env/config.json')
+];
 
 describe('Login Form', function() {
     const driver = new webdriver.Builder().forBrowser('chrome').build();
@@ -13,14 +12,14 @@ describe('Login Form', function() {
     after(async () => driver.quit());
 
     beforeEach(async () => {
-        await driver.get(baseUrl);
+        await driver.get(config.uiUrl);
         await driver.findElement(By.className('logo_in')).click();
         await driver.findElement(By.xpath('//input[@value="Я приватна особа"]')).click();
     });
 
     it('Login with valid credentials', async () => {
-        await driver.findElement(By.id('inputEmail_1')).sendKeys(login);
-        await driver.findElement(By.id('inputPassword_1')).sendKeys(password);
+        await driver.findElement(By.id('inputEmail_1')).sendKeys(config.login);
+        await driver.findElement(By.id('inputPassword_1')).sendKeys(config.password);
         await driver.findElement(By.name('yt0')).click();
         await driver.getTitle().then(title => assert.equal(title, 'ТОВ "Нова Пошта" - Особистий кабінет - Orders'));
     });
@@ -50,11 +49,11 @@ describe('Waybill template', function() {
     after(async () => driver.quit());
 
     beforeEach(async () => {
-        await driver.get(baseUrl);
+        await driver.get(config.uiUrl);
         await driver.findElement(By.className('logo_in')).click();
         await driver.findElement(By.xpath('//input[@value="Я приватна особа"]')).click();
-        await driver.findElement(By.id('inputEmail_1')).sendKeys(login);
-        await driver.findElement(By.id('inputPassword_1')).sendKeys(password);
+        await driver.findElement(By.id('inputEmail_1')).sendKeys(config.login);
+        await driver.findElement(By.id('inputPassword_1')).sendKeys(config.password);
         await driver.findElement(By.name('yt0')).click();
         await driver.findElement(By.css('a[class="btn btn-small btns btna"]')).click();
     });
